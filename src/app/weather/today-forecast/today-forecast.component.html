@@ -1,0 +1,133 @@
+<div class="row">
+
+    <div class="col-12 px-3 chart-data"> 
+    <div class="d-flex w-100 justify-content-between mt-3 ">
+
+        <div class="px-3 d-flex ">
+            <div class="d-flex">
+                <i class="bi bi-sunrise-fill text-light" style="font-size: 2rem;"></i>
+            </div>
+            <div class=" ps-3 d-flex flex-column  justify-content-center " >
+                <small style="font-size: 12px; color: rgba(87, 86, 86, 0.905);"> Sun sunrise </small>
+                <p class="m-0 fw-semibold" style="font-size: 10px;" >{{astro_details?.sunrise}}</p>
+            </div>
+        </div>
+        <div class="px-3 d-flex ">
+            <div class="d-flex">
+                <i class="bi bi-sunset-fill text-light" style="font-size: 2rem;"></i>
+            </div>
+            <div class=" ps-3 d-flex flex-column  justify-content-center" >
+                <small style="font-size: 12px;color: rgba(87, 86, 86, 0.905);">Sun sunset</small>
+                <p class="m-0 fw-semibold" style="font-size: 10px;" >{{astro_details?.sunset}}</p>
+            </div>
+        </div>
+        <div class="px-3 d-flex ">
+            <div class="d-flex">
+                <i class="bi bi-moon-stars-fill text-light" style="font-size: 2rem;"></i>
+            </div>
+            <div class=" ps-3 d-flex flex-column  justify-content-center" >
+                <small style="font-size: 12px; color: rgba(87, 86, 86, 0.905);">Moon rise</small>
+                <p class="m-0 fw-semibold" style="font-size: 10px;" >{{astro_details?.moonrise}}</p>
+            </div>
+        </div>
+        <div class="px-3 d-flex ">
+            <div class="d-flex">
+                <i class="bi bi-moon-fill text-light" style="font-size: 2rem;"></i>
+            </div>
+            <div class=" ps-3 d-flex flex-column  justify-content-center" >
+                <small style="font-size: 12px; color: rgba(87, 86, 86, 0.905);" class="fw-medium  ">Moon sunset</small>
+                <p class="m-0 fw-semibold" style="font-size: 10px;" >{{astro_details?.moonset}}</p>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+
+    <div class="col-12 my-3" *ngIf="today_alerts.length">
+        <marquee >
+            <span *ngFor="let news of today_alerts" class="me-2" >
+             <i class="bi bi-exclamation-triangle text-danger me-1"></i>   <span class="fw-semibold me-1">{{news?.category}}</span> {{news?.headline}}<span></span>
+            </span>
+        </marquee>
+    </div>
+
+    <div class="col-5 mx-auto mt-3 d-flex flex-wrap flex-column  ">
+        <div class="d-flex chart-data m-3 p-2">
+        <circle-progress  matTooltip="Avg Temprature {{more_details?.avgtemp_c}}° C"
+          [percent]="more_details?.avgtemp_c"
+          [imageSrc]="more_details?.condition?.icon"
+          [imageHeight]= "65"
+          [imageWidth]= "65"
+          [animationDuration]="300"
+          [radius]="60"
+          [space]="-10"
+          [outerStrokeWidth]="10"
+          [outerStrokeColor]="'#295eff'"
+        
+          [innerStrokeColor] ="'#eceef326'"
+          [innerStrokeWidth] ="10"
+          [animationDuration]="1000"
+          [showBackground]= "false"
+          [clockwise]="true"
+          [startFromZero]="true"
+        
+        ></circle-progress>
+        <div class="d-flex flex-column mt-4 ms-3">
+            <p class="m-0 fw-semibold">Max Temp. - <span class="fw-medium">{{unit?(more_details?.maxtemp_f)+'°F':(more_details?.maxtemp_c)+'°C'}}</span></p>
+            <p class="m-0 fw-semibold">Min Temp. - <span class="fw-medium">{{unit?(more_details?.mintemp_f)+'°F':(more_details?.mintemp_c)+'°C'}}</span></p>
+            <p class="m-0 fw-semibold">Avg. Humidity - <span class="fw-medium">{{more_details?.avghumidity}}%</span></p>
+        </div>
+    </div>
+    <div class="d-flex chart-data m-3 p-2 ">
+        <circle-progress  matTooltip="Max Wind {{more_details?.maxwind_kph}}km/h"
+          [percent]="more_details?.maxwind_kph"
+          [imageSrc]="'../../assets/wind.png'"
+          [imageHeight]= "65"
+          [imageWidth]= "65"
+          [animationDuration]="300"
+          [radius]="60"
+          [space]="-10"
+          [outerStrokeWidth]="10"
+          [outerStrokeColor]="'#295eff'"
+        
+          [innerStrokeColor] ="'#eceef326'"
+          [innerStrokeWidth] ="10"
+          [animationDuration]="1000"
+          [showBackground]= "false"
+          [clockwise]="true"
+          [startFromZero]="true"
+        ></circle-progress>
+
+        <div class="d-flex flex-column mt-4 ms-3">
+            <!-- <p class="m-0 fw-semibold">Max Wind - <span class="fw-medium">{{more_details?.maxwind_kph}}km/h </span></p> -->
+            <p class="m-0 fw-semibold">Chance of Rain - <span class="fw-medium">{{more_details?.daily_chance_of_rain}}%</span></p>
+            <p class="m-0 fw-semibold">Chance of Snow - <span class="fw-medium">{{more_details?.daily_chance_of_snow}}%</span></p>
+            <p class="m-0 fw-semibold">UV Index - <span class="fw-medium">{{more_details?.uv}}</span></p>
+        </div>
+    </div>
+    </div>
+    
+    <div class="col-5 mx-auto mt-3">
+
+        <figure class="highcharts-figure">
+            <div id="temp-report"></div>
+        </figure>
+    </div>
+    
+    <div class="col-5 mx-auto mt-3">
+
+        <figure class="highcharts-figure">
+            <div id="wind-report"></div>
+        </figure>
+    </div>
+
+    <div class="col-5 mx-auto mt-3">
+
+        <figure class="highcharts-figure">
+            <div id="change-of-rain-report"></div>
+        </figure>
+    </div>
+
+</div>
+

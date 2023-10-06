@@ -1,0 +1,115 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    // font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'Poppins', sans-serif;
+    // background-color: rgb(33, 37, 41);
+    // background-image: linear-gradient(to top, #dad772, #a5de92, #79dfba, #68dadb, #80d1ec, #8dcfed, #9acdec, #a5cbea, #9fd2eb, #9dd8e9, #9edee5, #a4e3df);
+    background-image: linear-gradient(to top, #1364da, #487fe2, #6e9ae7, #93b5eb, #bacfee);
+}
+
+.glass-back {
+    /* From https://css.glass */
+    // background: rgba(33, 37, 41, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+.card-back {
+
+    // background-color: rgba(118, 149, 139, 0.49);
+    background-color: rgb(0 0 0 / 49%);
+
+}
+
+.show-pointer {
+    cursor: pointer;
+}
+
+.mat-expansion-panel {
+    // background-color: red !important;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: none;
+    // border-radius: 16px !important;
+    // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+    // backdrop-filter: blur(5px) !important;
+    // -webkit-backdrop-filter: blur(5px) !important;
+    // border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.mat-mdc-card {
+    background: rgba(255, 255, 255, 0.2) !important;
+    // -webkit-backdrop-filter: blur(5px) !important;
+
+}
+
+
+.search-field .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+}
+
+.search-field .mat-mdc-form-field-flex {
+    height: 38px;
+}
+
+.search-field .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+    padding-top: 10px;
+}
+
+.search-field .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix {
+    padding-top: 10px;
+}
+
+.search-field .mdc-line-ripple {
+    display: none
+}
+
+.search-field .mat-input-element::placeholder {
+    color: red !important;
+}
+
+.search-field .mat-mdc-option {
+    min-height: 28px !important;
+}
+
+// .mdc-menu-surface .mat-mdc-autocomplete-panel {
+//     background: rgba(58, 56, 56, 0.33);
+//     border-radius: 16px;
+//     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+//     backdrop-filter: blur(6.4px);
+//     -webkit-backdrop-filter: blur(6.4px);
+//     border: 1px solid rgba(58, 56, 56, 0.01);
+// }
+.mat-mdc-snack-bar-container .mdc-snackbar__label{
+    display: flex;
+    justify-content: center;
+  }
+  ::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+
+.cdk-overlay-dark-backdrop {
+    background: rgb(3 3 3 / 66%);
+}
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    background-color: transparent !important;
+}
+.mat-mdc-dialog-container .mdc-dialog__surface{
+    box-shadow: none !important;
+}
+
+.owl-theme .owl-nav [class*=owl-]{
+    background-color: transparent !important;
+  }
